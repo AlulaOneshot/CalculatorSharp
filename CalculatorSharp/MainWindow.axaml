@@ -1,0 +1,25 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:calculatorSharp="clr-namespace:CalculatorSharp"
+        mc:Ignorable="d" d:DesignWidth="450" d:DesignHeight="800"
+        Width="550"
+        Height="800"
+        x:DataType="calculatorSharp:MainViewModel"
+        x:Class="CalculatorSharp.MainWindow"
+        Title="CalculatorSharp">
+    <Grid RowDefinitions="2*,8*">
+        <Border Grid.Row="0" Background="SlateGray">
+            <TextBlock Foreground="GhostWhite" TextAlignment="Right" VerticalAlignment="Center" Text="{Binding CalculatorText}" FontSize="20"/>
+        </Border>
+        <Border Grid.Row="1" BorderBrush="Black" BorderThickness="0,5,0,0">
+            <Grid Background="SlateGray">
+                
+                <Button>
+                    
+                </Button>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
