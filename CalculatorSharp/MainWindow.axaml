@@ -11,13 +11,107 @@
         Title="CalculatorSharp">
     <Grid RowDefinitions="2*,8*">
         <Border Grid.Row="0" Background="SlateGray">
-            <TextBlock Foreground="GhostWhite" TextAlignment="Right" VerticalAlignment="Center" Text="{Binding CalculatorText}" FontSize="20"/>
+            <TextBlock Foreground="GhostWhite" TextAlignment="Right" VerticalAlignment="Center" Text="{Binding CalculatorText}" FontSize="50"/>
         </Border>
         <Border Grid.Row="1" BorderBrush="Black" BorderThickness="0,5,0,0">
-            <Grid Background="SlateGray">
-                
-                <Button>
+            <Grid Background="SlateGray" RowDefinitions="1*,1*,1*,1*,1*" ColumnDefinitions="1*,1*,1*,1*">
+                <Grid.Styles>
+                    <Style Selector="Button">
+                        <Setter Property="Margin" Value="4" />
+                        <Setter Property="HorizontalAlignment" Value="Stretch" />
+                        <Setter Property="VerticalAlignment" Value="Stretch" />
+                        <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        <Setter Property="VerticalContentAlignment" Value="Center" />
+                    </Style>
                     
+                    <Style Selector="Button.gray /template/ ContentPresenter">
+                        <Setter Property="Background" Value="DimGray" />
+                    </Style>
+                    
+                    <Style Selector="Button.gray:pressed /template/ ContentPresenter">
+                        <Setter Property="Background" Value="DarkSlateGray" />
+                    </Style>
+                    
+                    <Style Selector="Button.red /template/ ContentPresenter">
+                        <Setter Property="Background" Value="Red" />
+                    </Style>
+                    
+                    <Style Selector="Button.red:pressed /template/ ContentPresenter">
+                        <Setter Property="Background" Value="DarkRed" />
+                    </Style>
+                    
+                    <Style Selector="Button.orange /template/ ContentPresenter">
+                        <Setter Property="Background" Value="Orange" />
+                    </Style>
+                    
+                    <Style Selector="Button.orange:pressed /template/ ContentPresenter">
+                        <Setter Property="Background" Value="DarkOrange" />
+                    </Style>
+                    
+                    <Style Selector="Button.green /template/ ContentPresenter">
+                        <Setter Property="Background" Value="Green" />
+                    </Style>
+                    
+                    <Style Selector="Button.green:pressed /template/ ContentPresenter">
+                        <Setter Property="Background" Value="DarkGreen" />
+                    </Style>
+                </Grid.Styles>
+                <Button Grid.Row="0" Grid.Column="0" Classes="red" Command="{Binding ClearCommand}">
+                    <TextBlock Text="CE" Foreground="GhostWhite" TextAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                </Button>
+                <Button Grid.Row="0" Grid.Column="1" Classes="orange" Command="{Binding OperatorCommand}" CommandParameter="%">
+                    <TextBlock Text="%" Foreground="GhostWhite" TextAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                </Button>
+                <Button Grid.Row="0" Grid.Column="2" Classes="orange" Command="{Binding ToggleSignCommand}">
+                    <TextBlock Text="+/-" Foreground="GhostWhite" TextAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                </Button>
+                <Button Grid.Row="0" Grid.Column="3" Classes="orange" Command="{Binding OperatorCommand}" CommandParameter="*">
+                    <TextBlock Text="*" Foreground="GhostWhite" TextAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                </Button>
+                <Button Grid.Row="1" Grid.Column="0" Classes="gray" Command="{Binding DigitCommand}" CommandParameter="9">
+                    <TextBlock Text="9" Foreground="GhostWhite" TextAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                </Button>
+                <Button Grid.Row="1" Grid.Column="1" Classes="gray" Command="{Binding DigitCommand}" CommandParameter="8">
+                    <TextBlock Text="8" Foreground="GhostWhite" TextAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                </Button>
+                <Button Grid.Row="1" Grid.Column="2" Classes="gray" Command="{Binding DigitCommand}" CommandParameter="7">
+                    <TextBlock Text="7" Foreground="GhostWhite" TextAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                </Button>
+                <Button Grid.Row="1" Grid.Column="3" Classes="orange" Command="{Binding OperatorCommand}" CommandParameter="/">
+                    <TextBlock Text="/" Foreground="GhostWhite" TextAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                </Button>
+                <Button Grid.Row="2" Grid.Column="0" Classes="gray" Command="{Binding DigitCommand}" CommandParameter="6">
+                    <TextBlock Text="6" Foreground="GhostWhite" TextAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                </Button>
+                <Button Grid.Row="2" Grid.Column="1" Classes="gray" Command="{Binding DigitCommand}" CommandParameter="5">
+                    <TextBlock Text="5" Foreground="GhostWhite" TextAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                </Button>
+                <Button Grid.Row="2" Grid.Column="2" Classes="gray" Command="{Binding DigitCommand}" CommandParameter="4">
+                    <TextBlock Text="4" Foreground="GhostWhite" TextAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                </Button>
+                <Button Grid.Row="2" Grid.Column="3" Classes="orange" Command="{Binding OperatorCommand}" CommandParameter="+">
+                    <TextBlock Text="+" Foreground="GhostWhite" TextAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                </Button>
+                <Button Grid.Row="3" Grid.Column="0" Classes="gray" Command="{Binding DigitCommand}" CommandParameter="3">
+                    <TextBlock Text="3" Foreground="GhostWhite" TextAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                </Button>
+                <Button Grid.Row="3" Grid.Column="1" Classes="gray" Command="{Binding DigitCommand}" CommandParameter="2">
+                    <TextBlock Text="2" Foreground="GhostWhite" TextAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                </Button>
+                <Button Grid.Row="3" Grid.Column="2" Classes="gray" Command="{Binding DigitCommand}" CommandParameter="1">
+                    <TextBlock Text="1" Foreground="GhostWhite" TextAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                </Button>
+                <Button Grid.Row="3" Grid.Column="3" Classes="orange" Command="{Binding OperatorCommand}" CommandParameter="-">
+                    <TextBlock Text="-" Foreground="GhostWhite" TextAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                </Button>
+                <Button Grid.Row="4" Grid.Column="1" Classes="gray" Command="{Binding DigitCommand}" CommandParameter="0">
+                    <TextBlock Text="0" Foreground="GhostWhite" TextAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                </Button>
+                <Button Grid.Row="4" Grid.Column="2" Classes="gray" Command="{Binding DecimalCommand}">
+                    <TextBlock Text="." Foreground="GhostWhite" TextAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+                </Button>
+                <Button Grid.Row="4" Grid.Column="3" Background="Green" Command="{Binding EqualsCommand}">
+                    <TextBlock Text="=" Foreground="GhostWhite" TextAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
                 </Button>
             </Grid>
         </Border>
